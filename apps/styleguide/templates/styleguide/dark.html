@@ -1,0 +1,22 @@
+{% extends "styleguide/base.html" %}
+
+{% block guide_logo %}{{ media('/img/styleguide/mozilla-dark.png') }}{% endblock %}
+
+{% block body_class %}
+  {{ super() }}
+  dark
+{% endblock %}
+
+{% block content_title %}Dark theme sample page{% endblock%}
+{% block content_area %}
+<section id="intro">
+
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illa tamen simplicia, vestra versuta. Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus; Sunt enim prima elementa naturae, quibus auctis vírtutis quasi germen efficitur. Tum Triarius: Posthac quidem, inquit, audacius. Et quidem, inquit, vehementer errat; Nonne videmus quanta perturbatio rerum omnium consequatur, quanta confusio? Duo Reges: constructio interrete. </p>
+
+  <h2>Laboro autem non sine causa;</h2>
+
+  <p>Quaesita enim virtus est, non quae relinqueret naturam, sed quae tueretur. <b>Negare non possum.</b> Occultum facinus esse potuerit, gaudebit; <i>Sed potestne rerum maior esse dissensio?</i> <b>Quid de Pythagora?</b> <a target="_blank" href="http://mozilla.org/">Facillimum id quidem est, inquam.</a> </p>
+
+</section>
+{% endblock %}

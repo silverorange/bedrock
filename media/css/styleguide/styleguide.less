@@ -21,6 +21,8 @@
     font-weight: 600;
 }
 
+@darkThemeText: #9a9ea1;
+
 .divider {
     padding-bottom: @baseLine * 3;
     margin-bottom: @baseLine * 2;
@@ -243,6 +245,46 @@ h1 {
         }
         a:last-child,b:last-child {
             background: none;
+        }
+    }
+}
+
+/* }}} */
+/* {{{ Dark theme */
+
+.dark.sand #outer-wrapper {
+    background-color: #31383c;
+    background-image: url('/media/img/styleguide/bg-dark.png');
+    background-repeat: repeat;
+}
+
+body.dark {
+    color: #fff;
+    h1, h2, h3, h4, h5, h6, .huge, .large {
+        color: #eee;
+        text-shadow: 0 1px #333;
+    }
+    #sidebar {
+        h2 a {
+            color: @darkThemeText; 
+        }
+        nav {
+            a,b {
+                color: @darkThemeText; 
+            }
+            ul {
+                li {
+                    &.active {
+                        background: rgba(0,0,0,0.3);
+                        .active {
+                            background: rgba(0,0,0,0.9);
+                        }
+                    }
+                    &.path a {
+                        color: @darkThemeText; 
+                    }
+                }
+            }
         }
     }
 }
