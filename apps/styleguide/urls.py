@@ -60,7 +60,7 @@ hierarchy = PageRoot('Home', children=(
         PageNode('Copy rules', path='copy-rules', template='styleguide/communications/copy-rules.html'),
         PageNode('Translation', path='translation', template='styleguide/communications/translation.html'),
     )),
-    PageNode('Dark Theme', path='dark', template='styleguide/dark.html'),
+    PageNode('Dark Theme', path='dark', template='styleguide/products/firefox-desktop-windows7.html'),
 ))
 
 urlpatterns = hierarchy.as_urlpatterns()
