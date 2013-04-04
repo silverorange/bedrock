@@ -151,6 +151,10 @@ MINIFY_BUNDLES = {
             'css/firefox/devices.less',
             'css/firefox/template.less'
         ),
+        'firefox_download': (
+            'css/firefox/download.less',
+            'css/firefox/simple-footer.less',
+        ),
         'firefox_features': (
             'css/sandstone/video.less',
             'css/firefox/features.less',
@@ -186,6 +190,7 @@ MINIFY_BUNDLES = {
         ),
         'firefox_new': (
             'css/firefox/new.less',
+            'css/firefox/simple-footer.less',
         ),
         'firefox_organizations': (
             'css/firefox/organizations.less',
@@ -364,6 +369,9 @@ MINIFY_BUNDLES = {
         'firefox_customize': (
             'js/mozilla-video-tools.js',
             'js/firefox/customize.js',
+        ),
+        'firefox_download': (
+            'js/firefox/download-page.js',
         ),
         'firefox_features': (
             'js/mozilla-video-tools.js',
