@@ -14,14 +14,9 @@ from commonware.decorators import xframe_allow
 from firefox import version_re
 from firefox.utils import is_current_or_newer
 from mozorg import email_contribute
-from mozorg.forms import ContributeForm, NewsletterForm
+from mozorg.forms import ContributeForm
 from mozorg.util import hide_contrib_form
-
-
-@xframe_allow
-def hacks_newsletter(request):
-    return l10n_utils.render(request,
-                             'mozorg/newsletter/hacks.mozilla.org.html')
+from newsletter.forms import NewsletterFooterForm
 
 
 @csrf_exempt
@@ -52,7 +47,7 @@ def contribute(request, template, return_to_form):
         form = ContributeForm()
 
     if has_newsletter_form:
-        newsletter_form = NewsletterForm(locale,
+        newsletter_form = NewsletterFooterForm(locale,
                                          request.POST,
                                          prefix='newsletter')
         if newsletter_form.is_valid():
@@ -71,7 +66,7 @@ def contribute(request, template, return_to_form):
                 )
                 newsletter_form.errors['__all__'] = msg
     else:
-        newsletter_form = NewsletterForm(locale, prefix='newsletter')
+        newsletter_form = NewsletterFooterForm(locale, prefix='newsletter')
 
     return l10n_utils.render(request,
                              template,

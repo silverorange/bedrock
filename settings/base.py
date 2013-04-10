@@ -110,6 +110,9 @@ MINIFY_BUNDLES = {
         'responsive': (
             'css/sandstone/sandstone-resp.less',
         ),
+        'newsletter': (
+            'css/newsletter/newsletter.less',
+        ),
         'contribute': (
             'css/contribute.less',
             'css/sandstone/video-resp.less',
@@ -533,9 +536,12 @@ MIDDLEWARE_CLASSES = (
     'django_statsd.middleware.GraphiteMiddleware',
     'funfactory.middleware.LocaleURLMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # MessageMiddleware must follow session middleware if
+    # we change config to use sessions for messages
+    'django.contrib.messages.middleware.MessageMiddleware',
     'commonware.middleware.FrameOptionsHeader',
     'mozorg.middleware.CacheMiddleware',
-    'mozorg.middleware.NewsletterMiddleware',
+    'newsletter.middleware.NewsletterMiddleware',
     'dnt.middleware.DoNotTrackMiddleware',
     'l10n_utils.middleware.FixLangFileTranslationsMiddleware',
 )
@@ -553,7 +559,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     #'django.contrib.sessions',
     # 'django.contrib.sites',
-    # 'django.contrib.messages',
+    'django.contrib.messages',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -577,6 +583,7 @@ INSTALLED_APPS = (
     'legal',
     'marketplace',
     'mozorg',
+    'newsletter',
     'persona',
     'privacy',
     'redirects',
@@ -636,6 +643,10 @@ RECAPTCHA_PRIVATE_KEY = ''
 RECAPTCHA_USE_SSL = True
 
 TEST_RUNNER = 'test_utils.runner.NoDBTestSuiterunner'
+
+# Use a message storage mechanism that doesn't need a database.
+# This can be changed to use session once we do add a database.
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 
 def lazy_email_backend():
