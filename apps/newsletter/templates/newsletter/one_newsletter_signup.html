@@ -32,29 +32,29 @@
           {% if request.locale.startswith('en') %}
             {% block success_en %}
               {# This text is only used for English users, so no need to translate #}
-                <p>
-                  We look forward to sharing tips & tricks on getting the most out
-                  of Firefox, as well as exciting news about Mozilla and how we’re
-                  working to create a better Web.
-                </p>
-                <p>
-                  Please add our sending address:
-                  <a href="mailto:mozilla@e.mozilla.org">mozilla@e.mozilla.org</a>
-                  to your address book to ensure we
-                  always reach your inbox.
-                </p>
+              <p>
+                We look forward to sharing tips & tricks on getting the most out
+                of Firefox, as well as exciting news about Mozilla and how we’re
+                working to create a better Web.
+              </p>
+              <p>
+                Please add our sending address:
+                <a href="mailto:mozilla@e.mozilla.org">mozilla@e.mozilla.org</a>
+                to your address book to ensure we
+                always reach your inbox.
+              </p>
             {% endblock success_en %}
           {% else %}
             {% block success_non_en %}
               {% trans email='mozilla@e.mozilla.org' %}
-                  <p>Thanks! Please check your inbox to confirm your subscription.</p>
-                  <p>
-                    You'll receive an email from
-                    <a href="mailto:{{ email }}">{{ email }}</a>
-                    to confirm your subscription. If
-                    you don't see it, check your spam filter. You must confirm your
-                    subscription to receive our newsletter.
-                  </p>
+                <p>Thanks! Please check your inbox to confirm your subscription.</p>
+                <p>
+                  You'll receive an email from
+                  <a href="mailto:{{ email }}">{{ email }}</a>
+                  to confirm your subscription. If
+                  you don't see it, check your spam filter. You must confirm your
+                  subscription to receive our newsletter.
+                </p>
               {% endtrans %}
             {% endblock success_non_en %}
           {% endif %}
