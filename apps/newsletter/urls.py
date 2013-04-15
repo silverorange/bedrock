@@ -3,6 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from django.conf.urls.defaults import *
+from mozorg.util import page
 
 import views
 
@@ -43,19 +44,6 @@ urlpatterns = patterns('',
         views.hacks_newsletter,
         name='mozorg.hacks_newsletter'),
 
-    # We developers don't get to pick the URLs used to sign up for
-    # individual newsletters, so we have to use URL patterns to map
-    # URLs to which newsletter we're subscribing to (rather than, say,
-    # including the newsletter key in the URL itself).
-    #
-    # We can, however, pick the URL names and template filenames as follows:
-    #
-    # URL name = "newsletter.<newsletter key>"
-    # Template = "newsletter/<newsletter key>.html"
-
-    # # "Firefox & You"
-    # url(r'^newsletter/$',
-    #     views.one_newsletter_signup,
-    #     kwargs={'newsletter': 'mozilla-and-you'},
-    #     name='newsletter.mozilla-and-you'),
+    # Page to subscribe to 'mozilla-and-you' newsletter
+    page('newsletter', 'newsletter/mozilla-and-you.html'),
 )

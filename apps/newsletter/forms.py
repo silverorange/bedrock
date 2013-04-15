@@ -145,7 +145,10 @@ class ManageSubscriptionsForm(forms.Form):
 
 
 class NewsletterForm(forms.Form):
-    """Form to let a user subscribe to or unsubscribe from a newsletter"""
+    """
+    Form to let a user subscribe to or unsubscribe from a newsletter
+    on the manage existing newsletters page.  Used in a FormSet.
+    """
     title = forms.CharField(required=False)
     description = forms.CharField(required=False)
     subscribed = forms.BooleanField(
@@ -156,6 +159,11 @@ class NewsletterForm(forms.Form):
 
 
 class NewsletterFooterForm(forms.Form):
+    """
+    Form used to subscribe to a single newsletter, typically in the
+    footer of a page (see newsletters/middleware.py) but sometimes
+    on a dedicated page.
+    """
     newsletter = forms.CharField(widget=forms.HiddenInput)
     email = forms.EmailField(widget=EmailInput(attrs={'required': 'true'}))
     fmt = forms.ChoiceField(widget=forms.RadioSelect(renderer=SideRadios),
