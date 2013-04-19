@@ -118,6 +118,42 @@
   float: right;
 }
 
+/* {{{ /newsletter page email form */
+
+.js #newsletter-form {
+    #form-details,
+    .form-details { display: block; }
+}
+
+#newsletter {
+    #main-feature {
+        h1 {
+            font-size: 56px;
+            margin-top: @baseLine;
+            margin-bottom: @baseLine / 2;
+        }
+        p {
+            font-size: @largeFontSize;
+        }
+    }
+    #newsletter-form {
+        padding-top: @baseLine * 2;
+        padding-bottom: @baseLine * 2;
+        background-image: url(/media/img/newsletter/envelopes.png);
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        .field {
+            margin: 5px 0;
+        }
+        .form-contents,
+        .form-submit {
+            .span(6);
+            clear: left;
+        }
+    }
+}
+
+/* }}} */
 /* {{{ Tablet  Layout: 768px */
 @media only screen and (min-width: @widthTablet) and (max-width: @widthDesktop) {
 
@@ -136,6 +172,25 @@
         .submit-field {
             .span_narrow(6);
             .offset_narrow(3);
+        }
+    }
+
+    #newsletter {
+        #main-feature {
+            h1 {
+                font-size: 48px;
+            }
+            p {
+                font-size: inherit;
+            }
+        }
+        #newsletter-form {
+            background-position: 160% 100%;
+            .form-contents,
+            .form-submit {
+                .span_narrow(6);
+                clear: left;
+            }
         }
     }
 
@@ -170,6 +225,28 @@
             .span-all();
         }
     }
+
+    #newsletter {
+        #main-feature {
+            h1 {
+                font-size: 28px;
+                letter-spacing: -1px;
+            }
+            p {
+                font-size: @smallFontSize;
+            }
+        }
+        #newsletter-form {
+            padding-top: @baseLine;
+            padding-bottom: @baseLine;
+            background-image: none;
+            .form-contents,
+            .form-submit {
+                .span-all();
+            }
+        }
+    }
+
 
 }
 
