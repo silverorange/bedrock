@@ -561,14 +561,40 @@
             .span_guide(12);
             margin-bottom: @baseLine;
         }
+        .switcher-example {
+            .span_guide(4);
+            p {
+                margin-left: 0;
+            }
+            figure {
+                img {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-bottom: @baseLine;
+                }
+                figcaption {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: (@baseLine / 2);
+                    margin-bottom: @baseLine;
+                }
+            }
+        }
     }
-    figure {
-        .span_guide(4);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
+    #sliders_handlers {
+        .switcher-example {
+            .span_guide(6);
+        }
+    }
+    #examples {
+        figure {
+            .span_guide(4);
+            margin-top: @baseLine;
+            margin-bottom: (2 * @baseLine);
+            figcaption {
+                color: @darkThemeText;
+                margin: (@baseLine / 2) auto;
+            }
         }
     }
     #downloads {
