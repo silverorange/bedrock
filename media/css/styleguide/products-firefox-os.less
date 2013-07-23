@@ -780,3 +780,72 @@
 }
 
 /* }}} */
+/* {{{ Firefox OS Lists */
+
+.firefox-os-lists {
+    #basics,
+    #common_lists,
+    #notifications,
+    #overlays,
+    #settings,
+    #drawer,
+    #buttons,
+    #examples {
+        .divider-dark;
+        .clearfix;
+        h2, p {
+            .span_guide(12);
+            margin-bottom: @baseLine;
+        }
+    }
+    figure {
+        .span_guide(6);
+        margin-top: @baseLine;
+        margin-bottom: (2 * @baseLine);
+        figcaption {
+            color: @darkThemeText;
+            margin: (@baseLine / 2) auto;
+        }
+    }
+    #buttons {
+        figure {
+            .span_guide(12);
+            text-align: center;
+        }
+        img {
+            margin: auto;
+        }
+        ol {
+            clear: left;
+            list-style-type: none;
+            padding: 20px 0 0 0;
+            li {
+                background: transparent url(/media/img/styleguide/products/firefoxos/ol-list.png) no-repeat 0 5px;
+                padding: 8px 0 8px 35px;
+                &:nth-child(2) {
+                    background-position: 0 -44px;
+                }
+                &:nth-child(3) {
+                    background-position: 0 -93px;
+                }
+                &:nth-child(4) {
+                    background-position: 0 -140px;
+                }
+            }
+        }
+    }
+    #examples {
+        figure {
+            .span_guide(4);
+        }
+    }
+    #downloads {
+        .span_guide(12);
+        border: 1px solid #f2f3f3;
+        p {
+            margin: @baseLine;
+        }
+    }
+}
+
+/* }}} */

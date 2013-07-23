@@ -82,6 +82,7 @@ all_children = [
             PageNode('Switcher', path='switcher', template='styleguide/products/firefox-os-switcher.html'),
             PageNode('Action Icons', path='actionicons', template='styleguide/products/firefox-os-action-icons.html'),
             PageNode('App Icons', path='icons', template='styleguide/products/firefox-os-icons.html'),
+            PageNode('Lists', path='lists', template='styleguide/products/firefox-os-lists.html'),
         )),
     )),
 ]
