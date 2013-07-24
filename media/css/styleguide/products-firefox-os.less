@@ -799,12 +799,56 @@
         }
     }
     figure {
-        .span_guide(6);
+        .span_guide(7);
         margin-top: @baseLine;
         margin-bottom: (2 * @baseLine);
+        &.right {
+            .span_guide(5);
+            margin-top: @baseLine;
+            margin-bottom: (2 * @baseLine);
+            img {
+                max-width: none;
+            }
+        }
         figcaption {
             color: @darkThemeText;
             margin: (@baseLine / 2) auto;
+        }
+    }
+    #common_lists {
+        figure.right img {
+            margin-left: -77px;
+        }
+        img.common-default,
+        img.common-events {
+            padding-top: 14px;
+        }
+        img.common-narrow {
+            padding-top: 17px;
+        }
+    }
+    #notifications {
+        figure.right img {
+            margin-left: -77px;
+        }
+        img.notifications-notifications {
+            padding-top: 12px;
+        }
+    }
+    #settings {
+        figure.right img {
+            margin-left: -91px;
+        }
+        img.settings-settings {
+            padding-top: 12px;
+        }
+    }
+    #drawer {
+        figure.right img {
+            margin-left: -127px;
+        }
+        img.drawer-drawer {
+            padding-top: 6px;
         }
     }
     #buttons {
