@@ -1,5 +1,80 @@
 @import "../styleguide/styleguide.less";
 
+.blue-circle-list() {
+    ol {
+        clear: left;
+        list-style-type: none;
+        padding: 0;
+        li {
+            position: relative;
+            margin: 5px 0;
+            padding: 5px 0 5px 40px;
+            img {
+                margin-top: @baseLine;
+            }
+        }
+        li:before {
+            position: absolute;
+            content: " ";
+            display: block;
+            height: 40px;
+            width: 40px;
+            top: 0;
+            left: 0;
+            background: transparent url(/media/img/styleguide/products/firefoxos/ol-list.png) no-repeat 0 0;
+        }
+        li:nth-child(2):before {
+            background-position: 0 -47px;
+        }
+        li:nth-child(3):before {
+            background-position: 0 -96px;
+        }
+        li:nth-child(4):before {
+            background-position: 0 -145px;
+        }
+    }
+}
+
+.figure() {
+    .span_guide(4);
+    margin-top: @baseLine;
+    margin-bottom: (2 * @baseLine);
+    figcaption {
+        color: @darkThemeText;
+        margin: (@baseLine / 2) auto;
+    }
+}
+
+/* {{{ Firefox OS Guidelines */
+
+.firefox-os-guidelines {
+    #basics,
+    #list,
+    #examples {
+        .clearfix;
+        h2, p, ol {
+            .span_guide(12);
+            margin-bottom: @baseLine;
+        }
+    }
+    #basics {
+        ol {
+            list-style-type: none;
+            li {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    #list {
+        .blue-circle-list();
+    }
+    figure {
+        .figure();
+    }
+}
+
+/* }}} */
 /* {{{ Firefox OS Action Icons */
 
 .firefox-os-action-icons {
@@ -188,15 +263,6 @@
             }
         }
     }
-    #action-downloads {
-        .clearfix;
-        .intro {
-            .span_guide(12);
-        }
-        .download-group {
-            .span_guide(3);
-        }
-    }
 }
 
 /* }}} */
@@ -264,28 +330,18 @@
             clear: both;
         }
     }
-    figure {
-        .span_guide(3);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
-        }
-    }
     #downloads {
-        .intro {
+        .clearfix;
+        .divider-dark;
+    }
+    #guidelines {
+        p {
             .span_guide(12);
         }
-        .download-group {
-            .span_guide(3);
-            p {
-                margin-bottom: 0;
-            }
-        }
-        #icon-circle {
-            .span_guide(4);
-        }
+    }
+    figure {
+        .figure();
+        .span_guide(3);
     }
 }
 
@@ -293,7 +349,8 @@
 /* {{{ Firefox OS Backgrounds */
 
 .firefox-os-backgrounds {
-    #basics {
+    #basics,
+    #usage_examples {
         .divider-dark;
         .clearfix;
         h2, p {
@@ -310,20 +367,7 @@
         }
     }
     figure {
-        .span_guide(4);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
-        }
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
-        }
+        .figure();
     }
 }
 
@@ -351,38 +395,16 @@
             margin: 20px 0 50px 10px;
         }
     }
-    #list_buttons ol {
-        list-style-type: none;
-        padding: 0;
-        li {
-            background: transparent url(/media/img/styleguide/products/firefoxos/ol-list.png) no-repeat 0 5px;
-            padding: 10px 0 10px 35px;
-            &:nth-child(2) {
-                background-position: 0 -42px;
-            }
-            &:nth-child(3) {
-                background-position: 0 -91px;
-            }
-            &:nth-child(4) {
-                background-position: 0 -140px;
-            }
+    #list_buttons {
+        .blue-circle-list();
+    }
+    #do_dont {
+        p {
+            margin-bottom: (2 * @baseLine);
         }
     }
     figure {
-        .span_guide(4);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
-        }
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
-        }
+        .figure();
     }
 }
 
@@ -408,6 +430,7 @@
     }
     #recommended_gradients h3,
     #examples h3 {
+        font-size: @baseLine;
         margin-top: 40px;
     }
     #main_colors,
@@ -432,6 +455,7 @@
             }
             p {
                 color: #9a9ea1;
+                margin-top: 10px;
             }
         }
         #swatch_00aacc .swatch span { background-color: #00aacc; }
@@ -459,7 +483,7 @@
         #swatch_008eab .swatch span { background-color: #008eab; }
         #swatch_00aacc .swatch span { background-color: #00aacc; }
         #swatch_00caf2 .swatch span { background-color: #00caf2; }
-        #swatch_b2f2ff .swatch span { background-color: #b2f2ff; }
+        #swatch_b2f2ff .swatch span { background-color: #b2f2ff; color: #000; }
         #swatch_820000 .swatch span { background-color: #820000; }
         #swatch_b90000 .swatch span { background-color: #b90000; }
         #swatch_ff4e00 .swatch span { background-color: #ff4e00; }
@@ -473,23 +497,10 @@
         }
     }
     figure {
-        .span_guide(4);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
-        }
+        .figure();
     }
     #recommended_gradients figure {
         .span_guide(2);
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
-        }
     }
 }
 
@@ -499,10 +510,11 @@
 .firefox-os-headers {
     #basics,
     #elements,
+    #do_dont,
     #examples {
         .divider-dark;
         .clearfix;
-        h2, h3, p {
+        h2, h3, p, ol {
             .span_guide(12);
             margin-bottom: @baseLine;
         }
@@ -511,36 +523,10 @@
         img.elements {
             margin: 0 10px 20px 10px;
         }
-        ol {
-            list-style-type: none;
-            padding: 0;
-            li {
-                background: transparent url(/media/img/styleguide/products/firefoxos/ol-list.png) no-repeat 0 10px;
-                padding: 8px 0 8px 35px;
-                &:nth-child(2) {
-                    background-position: 0 -44px;
-                }
-                &:nth-child(3) {
-                    background-position: 0 -93px;
-                }
-            }
-        }
+        .blue-circle-list();
     }
     figure {
-        .span_guide(4);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
-        }
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
-        }
+        .figure();
     }
 }
 
@@ -559,6 +545,9 @@
         .clearfix;
         h2, p {
             .span_guide(12);
+            margin-bottom: @baseLine;
+        }
+        h5 {
             margin-bottom: @baseLine;
         }
         .switcher-example {
@@ -588,20 +577,7 @@
     }
     #examples {
         figure {
-            .span_guide(4);
-            margin-top: @baseLine;
-            margin-bottom: (2 * @baseLine);
-            figcaption {
-                color: @darkThemeText;
-                margin: (@baseLine / 2) auto;
-            }
-        }
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
+            .figure();
         }
     }
 }
@@ -623,13 +599,7 @@
         }
     }
     figure {
-        .span_guide(4);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        figcaption {
-            color: @darkThemeText;
-            margin: (@baseLine / 2) auto;
-        }
+        .figure();
     }
     figure.newrow {
         clear: left;
@@ -642,13 +612,6 @@
     #form_fields .column-group {
         float: left;
         width: 320px;
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
-        }
     }
 }
 
@@ -668,9 +631,6 @@
             margin-bottom: @baseLine;
         }
     }
-    #tabbar img {
-        margin: 20px 0 50px 10px;
-    }
     figure {
         .span_guide(4);
         margin-top: @baseLine;
@@ -679,9 +639,12 @@
             color: @darkThemeText;
             margin: (@baseLine / 2) auto;
         }
+        &.newrow {
+            clear: left;
+        }
     }
-    figure.newrow {
-        clear: left;
+    #tabbar img {
+        margin: 20px 0 50px 10px;
     }
     #toolbar figure {
         margin-top: 0;
@@ -690,11 +653,10 @@
             margin-top: @baseLine;
         }
     }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
+    #filters {
+        figcaption {
+            font-size: 16px;
+            color: #eee;
         }
     }
 }
@@ -725,6 +687,8 @@
         }
     }
     #text_styles {
+        .clearfix;
+        .divider-dark;
         h2, p, table {
             .span_guide(12);
             margin-bottom: @baseLine;
@@ -732,14 +696,21 @@
         table {
             margin-top: @baseLine * 2;
             margin-bottom: @baseLine * 3;
+            border-collapse: separate;
+            border-spacing: 2px;
             border: 1px #0fabca solid;
             th, td {
                 padding: 20px;
+                border-top: 0;
+            }
+            td {
                 border-top: 1px #0fabca solid;
             }
         }
     }
     #examples {
+        .clearfix;
+        .divider-dark;
         h2, p, img {
             .span_guide(12);
             margin-bottom: @baseLine;
@@ -749,6 +720,8 @@
         }
     }
     #converting {
+        .clearfix;
+        .divider-dark;
         h2, h3, p {
             .span_guide(12);
             margin-bottom: @baseLine;
@@ -762,19 +735,15 @@
             border: 1px #0fabca solid;
             th {
                 font-weight: bold;
+                text-align: center;
+                padding: 20px;
+                border-top: 0;
             }
-            th, td {
+            td {
                 text-align: center;
                 padding: 20px;
                 border-top: 1px #0fabca solid;
             }
-        }
-    }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
         }
     }
 }
@@ -811,7 +780,8 @@
             }
         }
         figcaption {
-            color: @darkThemeText;
+            font-size: 16px;
+            color: #eee;
             margin: (@baseLine / 2) auto;
         }
     }
@@ -859,37 +829,33 @@
         img {
             margin: auto;
         }
-        ol {
-            clear: left;
-            list-style-type: none;
-            padding: 20px 0 0 0;
-            li {
-                background: transparent url(/media/img/styleguide/products/firefoxos/ol-list.png) no-repeat 0 5px;
-                padding: 8px 0 8px 35px;
-                &:nth-child(2) {
-                    background-position: 0 -44px;
-                }
-                &:nth-child(3) {
-                    background-position: 0 -93px;
-                }
-                &:nth-child(4) {
-                    background-position: 0 -140px;
-                }
-            }
-        }
+        .blue-circle-list();
     }
     #examples {
         figure {
             .span_guide(4);
         }
     }
-    #downloads {
-        .span_guide(12);
-        border: 1px solid #f2f3f3;
-        p {
-            margin: @baseLine;
-        }
-    }
 }
 
 /* }}} */
+
+#downloads {
+    .clearfix;
+    .intro {
+        .span_guide(12);
+    }
+    .download-group {
+        .span_guide(3);
+        p {
+            margin-bottom: 0;
+        }
+    }
+    #icon-circle {
+        .span_guide(4);
+    }
+    .css-link {
+        .span_guide(12);
+    }
+
+}

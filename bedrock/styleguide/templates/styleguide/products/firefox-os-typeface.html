@@ -24,6 +24,9 @@
     <h3>Fira Sans Medium</h3>
     <img src="{{ media('/img/styleguide/products/firefoxos/typeface/fira-sans-medium.png') }}" alt="Fira Sans Medium" />
 
+    <h3>Fira Sans Bold</h3>
+    <img src="{{ media('/img/styleguide/products/firefoxos/typeface/fira-sans-bold.png') }}" alt="Fira Sans Bold" />
+
   </div>
 
 </section>
@@ -53,7 +56,7 @@
     <td>2.5</td>
     <td>Regular / 400</td>
     <td>Headers</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 2.5rem; font-weight: 400;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>h2</td>
@@ -62,7 +65,7 @@
     <td>1.6</td>
     <td>Regular / 400</td>
     <td>Subheaders, Dialog titles</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 1.6rem; font-weight: 400;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>p.large</td>
@@ -71,7 +74,7 @@
     <td>2.3</td>
     <td>Light / 300</td>
     <td>Dialogs</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 2.3rem; font-weight: 300;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>p /ul</td>
@@ -80,7 +83,7 @@
     <td>1.9</td>
     <td>Regular / 400</td>
     <td>Body text, lists, default size</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 1.9rem; font-weight: 400;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>p.alt</td>
@@ -89,7 +92,7 @@
     <td>1.7</td>
     <td>Medium / 500</td>
     <td>Med. body text and btn label</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 1.7rem; font-weight: 500;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>p.small</td>
@@ -98,7 +101,7 @@
     <td>1.5</td>
     <td>Regular / 400</td>
     <td>Status bar</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 1.5rem; font-weight: 400;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>p.mini</td>
@@ -107,7 +110,7 @@
     <td>1.4</td>
     <td>Regular / 400</td>
     <td>Fine print and status bar</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 1.4rem; font-weight: 400;">Lorem Ipsum</div></td>
   </tr>
   <tr>
     <td>p.micro</td>
@@ -116,7 +119,7 @@
     <td>1.3</td>
     <td>Regular / 400</td>
     <td>Application icon label</td>
-    <td>Lorem Ipsum</td>
+    <td><div style="font-size: 1.3rem; font-weight: 400;">Lorem Ipsum</div></td>
   </tr>
   </tbody>
   </table>
@@ -124,13 +127,13 @@
 </section>
 
 <section id="examples">
-  <h2>Use examples</h2>
+  <h2>Usage examples</h2>
   <img src="{{ media('/img/styleguide/products/firefoxos/typeface/example.png') }}" alt="Example" />
 </section>
 
 <section id="converting">
   <h2>Converting type, sizes in points, pixels and rem</h2>
-  <p><strong>This calculations are density dependant</strong> and you may switch from one pixel density to another to obtain the right relationship between points and rems.</p>
+  <p><strong>The calculations are density dependant</strong> and you may switch from one pixel density to another to obtain the right relationship between points and rems.</p>
   <p>This is the <strong>formula to convert points to rems</strong> depending on the device’s pixel density.</p>
 
   <h3>Conversion formula</h3>
@@ -188,10 +191,18 @@
 </section>
 
 <section id="downloads">
-
-  <p>You can download the Fira Sans Font TTF file <a href="">here</a>.</p>
-  <p>You can also download the text CSS <a href="">here</a>.</p>
-
+  <div class="intro">
+    <h2>Download</h2>
+    <p>Download the Fira Sans Font in TTF or OTF</p>
+  </div>
+  <div class="download-group" id="download-primary">
+    <h5>Fira Sans</h5>
+    <ul class="button-list">
+      <li><a href="" class="button-sand">{{ _('TTF') }}</a></li><li>
+      <a href="" class="button-sand">{{ _('OTF') }}</a></li>
+    </ul>
+  </div>
+  <p class="css-link">You can also download the text CSS <a href="">here</a>.</p>
 </section>
 
 {% endblock %}
