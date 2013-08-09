@@ -45,6 +45,12 @@
     }
 }
 
+.top-figcaption {
+    font-family: 'Open Sans Light';
+    font-size: 16px;
+    color: #eee;
+}
+
 /* {{{ Firefox OS Guidelines */
 
 .firefox-os-guidelines {
@@ -604,6 +610,13 @@
     figure.newrow {
         clear: left;
     }
+    #input_areas,
+    #search_areas,
+    #form_fields {
+        figcaption {
+            .top-figcaption;
+        }
+    }
     #search_areas figure,
     #form_fields figure {
         margin-top: 0;
@@ -655,8 +668,7 @@
     }
     #filters {
         figcaption {
-            font-size: 16px;
-            color: #eee;
+            .top-figcaption;
         }
     }
 }
@@ -768,21 +780,29 @@
         }
     }
     figure {
-        .span_guide(7);
-        margin-top: @baseLine;
-        margin-bottom: (2 * @baseLine);
-        &.right {
-            .span_guide(5);
+       .figure();
+    }
+    #common_lists,
+    #notifications,
+    #overlays,
+    #settings,
+    #drawer,
+    #buttons {
+        figure {
+            .span_guide(7);
             margin-top: @baseLine;
             margin-bottom: (2 * @baseLine);
-            img {
-                max-width: none;
+            &.right {
+                .span_guide(5);
+                margin-top: @baseLine;
+                margin-bottom: (2 * @baseLine);
+                img {
+                    max-width: none;
+                }
             }
         }
         figcaption {
-            font-size: 16px;
-            color: #eee;
-            margin: (@baseLine / 2) auto;
+            .top-figcaption;
         }
     }
     #common_lists {
@@ -827,14 +847,9 @@
             text-align: center;
         }
         img {
-            margin: auto;
+            margin: auto auto @baseLine auto;
         }
         .blue-circle-list();
-    }
-    #examples {
-        figure {
-            .span_guide(4);
-        }
     }
 }
 
