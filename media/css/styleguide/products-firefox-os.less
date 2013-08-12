@@ -263,10 +263,7 @@
             margin-bottom: @baseLine;
         }
         figure {
-            .span_guide(4);
-            img {
-                margin-top: @baseLine / 2;
-            }
+            .figure();
         }
     }
 }
@@ -299,10 +296,13 @@
         h3,
         .intro {
             .span_guide(12);
+            margin-bottom: @baseLine;
         }
         #do,
         #do-not {
             clear: both;
+            overflow: auto;
+            margin-bottom: @baseLine;
         }
     }
     #circle {
@@ -315,11 +315,9 @@
         }
         h3 {
             .span_guide(12);
+            margin-bottom: @baseLine;
         }
         #circle-c {
-            h3 {
-                margin-bottom: @baseLine;
-            }
             p {
                 .span_guide(12);
             }
