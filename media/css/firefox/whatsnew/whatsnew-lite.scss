@@ -66,32 +66,32 @@
     display: flex;
     align-items: center;
 
-    @media #{$mq-lg} {
-        margin-left: 80px;
-    }
-
     img {
         margin-right: $spacing-md;
     }
 }
 
 .lite-body {
-    background: url('/media/img/firefox/whatsnew/lite/background.png') no-repeat bottom;
-    color: #fff;
+    background: #42d3ec radial-gradient(50% 50% at 50% 50%, #9CF1D7 0%, rgba(255, 255, 255, 0) 100%) no-repeat top center;
+    color: $color-gray-80;
     overflow: hidden;
     position: relative;
-    padding-top: 10%;
+    @media #{$mq-lg} {
+        background-image: url('/media/img/firefox/whatsnew/lite/background.png');
+    }
 }
 
 .lite-text {
-    @include text-display-md;
+    @include text-display-sm;
     font-weight: bold;
     margin: 0 auto $spacing-lg;
     max-width: 20em;
-    padding: $spacing-sm 0;
+    padding: 60px 0 $spacing-lg;
 }
 
 .lite-content {
+    max-width: 1000px;
+
     .lite-KV {
         display: none;
     }
@@ -110,7 +110,8 @@
 
     @media #{$mq-lg} {
         display: grid;
-        grid-template-columns: 1fr 2fr 0.5fr;
+        grid-template-columns: 2fr 3fr ;
+        margin-bottom: -120px;
 
         .lite-KV {
             display: block;
@@ -118,9 +119,10 @@
             min-width: 300px;
 
             img {
-                position: relative;
-                top: -110px;
-                max-width: 130%;
+                position: absolute;
+                bottom: -130px;
+                right: 0;
+                max-width: 788px;
             }
         }
 
