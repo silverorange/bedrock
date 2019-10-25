@@ -670,7 +670,6 @@ class WhatsnewView(l10n_utils.LangFilesMixin, TemplateView):
 
 class WhatsNewIndiaView(WhatsnewView):
     def get_template_names(self):
-        template = super(WhatsNewIndiaView, self).get_template_names()
         locale = l10n_utils.get_locale(self.request)
         version = self.kwargs.get('version') or ''
         channel = detect_channel(version)
@@ -679,6 +678,8 @@ class WhatsNewIndiaView(WhatsnewView):
             # return a list to conform with original intention
             return ['firefox/whatsnew/index-lite.html']
 
+        template = super().get_template_names()
+        
         return template
 
 
