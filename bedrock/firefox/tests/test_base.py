@@ -614,94 +614,18 @@ class TestWhatsNewIndia(TestCase):
         self.view = fx_views.WhatsnewViewIndia.as_view()
         self.rf = RequestFactory(HTTP_USER_AGENT='Firefox')
 
-    # begin dev edition whatsnew tests
+    # begin in locale-specific tests
 
     @override_settings(DEV=True)
-    def test_fx_dev_browser_35_0_a2_whatsnew(self, render_mock):
-        """Should show default whatsnew template"""
-        req = self.rf.get('/en-US/firefox/whatsnew')
-        self.view(req, version='35.0a2')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/whatsnew/index.html']
-
-    @override_settings(DEV=True)
-    def test_fx_dev_browser_57_0_a2_whatsnew(self, render_mock):
-        """Should show dev browser 57 whatsnew template"""
-        req = self.rf.get('/en-US/firefox/whatsnew/')
-        self.view(req, version='57.0a2')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/developer/whatsnew.html']
-
-    @override_settings(DEV=True)
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68='True')
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68_TRAILHEAD='True')
-    def test_fx_dev_browser_68_0_a2_trailhead_on(self, render_mock):
-        """Should show dev browser 68 trailhead template"""
-        req = self.rf.get('/en-US/firefox/whatsnew/')
-        self.view(req, version='68.0a2')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/developer/whatsnew-fx68-trailhead.html']
-
-    @override_settings(DEV=True)
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68='True')
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68_TRAILHEAD='False')
-    def test_fx_dev_browser_68_0_a2_trailhead_off(self, render_mock):
-        """Should show dev browser 68 trailhead template"""
-        req = self.rf.get('/en-US/firefox/whatsnew/')
-        self.view(req, version='68.0a2')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/developer/whatsnew-fx68.html']
-
-    @override_settings(DEV=True)
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68='True')
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68_TRAILHEAD='True')
-    def test_fx_dev_browser_68_0_a2_trailhead_non_locales(self, render_mock):
-        """Should show dev browser 68 whatsnew template"""
-        req = self.rf.get('/firefox/whatsnew/')
-        req.locale = 'es-ES'
-        self.view(req, version='68.0a2')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/developer/whatsnew-fx68.html']
-
-    @override_settings(DEV=True)
-    @patch.dict(os.environ, SWITCH_DEV_WHATSNEW_68='False')
-    def test_fx_dev_browser_68_0_a2_whatsnew_off(self, render_mock):
-        """Should show regular dev browser whatsnew template"""
-        req = self.rf.get('/en-US/firefox/whatsnew/')
-        self.view(req, version='68.0a2')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/developer/whatsnew.html']
-
-    # end dev edition whatsnew tests
-
-    @override_settings(DEV=True)
-    def test_rv_prefix(self, render_mock):
-        """Prefixed oldversion shouldn't impact version sniffing."""
-        req = self.rf.get('/en-US/firefox/whatsnew/?oldversion=rv:10.0')
-        self.view(req, version='54.0')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/whatsnew/index.html']
-
-    @override_settings(DEV=True)
-    def test_fx_default_whatsnew(self, render_mock):
-        """Should use standard template for 62.0"""
-        req = self.rf.get('/en-US/firefox/whatsnew/')
-        self.view(req, version='62.0')
-        template = render_mock.call_args[0][1]
-        assert template == ['firefox/whatsnew/index.html']
-
-    # begin id locale-specific tests
-
-    @override_settings(DEV=True)
-    def test_id_locale_template_lite(self, render_mock):
+    def test_in_locale_template_lite(self, render_mock):
         """Should use id locale specific template for Firefox Lite"""
         req = self.rf.get('/firefox/whatsnew/')
-        req.locale = 'id'
+        req.locale = 'in'
         self.view(req, version='63.0')
         template = render_mock.call_args[0][1]
-        assert template == ['firefox/whatsnew/index-lite.id.html']
+        assert template == ['firefox/whatsnew/index-lite.html']
 
-    # end id locale-specific tests
+    # end in locale-specific tests
 
 
 @patch('bedrock.firefox.views.l10n_utils.render', return_value=HttpResponse())
