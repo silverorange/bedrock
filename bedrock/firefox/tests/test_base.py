@@ -618,7 +618,7 @@ class TestWhatsNewIndia(TestCase):
 
     @override_settings(DEV=True)
     def test_in_locale_template_lite(self, render_mock):
-        """Should use id locale specific template for Firefox Lite"""
+        """Should use in locale specific template for Firefox Lite"""
         req = self.rf.get('/firefox/whatsnew/')
         req.locale = 'in'
         self.view(req, version='63.0')
